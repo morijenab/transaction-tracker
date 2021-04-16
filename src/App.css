@@ -37,6 +37,7 @@ label {
   min-height: 35px;
   margin-top: 6px;
   width: 600px;
+  padding: 10px;
 }
 
 .save-btn {
