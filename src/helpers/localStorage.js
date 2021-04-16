@@ -1,14 +1,20 @@
 export const saveData = (data, id) => {
   const dataBase = readData() ?? [];
 
-  //update DB
+  //update a record
   if (id) {
     const otherRecords = dataBase.filter((item) => item.id !== id);
-    return saveToLocalStorage([...otherRecords, { ...data, id: id }]);
+    return saveToLocalStorage([
+      ...otherRecords,
+      { ...data, id, transactionDate: new Date() },
+    ]);
   }
 
   //create a new records
-  saveToLocalStorage([...dataBase, { ...data, id: dataBase.length }]);
+  saveToLocalStorage([
+    ...dataBase,
+    { ...data, id: dataBase.length, transactionDate: new Date() },
+  ]);
 };
 
 /**
