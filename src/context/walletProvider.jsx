@@ -1,6 +1,6 @@
 import * as React from "react";
 import { readData } from "../helpers/localStorage";
-import { aggregateWallet } from "../helpers/aggregateWallet";
+import { aggregateWallet } from "../helpers/wallet";
 export const WalletContext = React.createContext();
 
 const walletBalance = () => {
@@ -17,6 +17,9 @@ const walletReducer = (state, action) => {
     case "expense": {
       return { wallet: state.wallet - action.payload };
     }
+    case "delete": {
+      return { wallet: state.wallet - action.payload };
+    }
 
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
@@ -28,7 +31,7 @@ function WalletProvider({ children }) {
     wallet: walletBalance(),
   });
 
-  const value = { state, dispatch };
+  const value = { wallet: state.wallet, dispatch };
   return (
     <WalletContext.Provider value={value}>{children}</WalletContext.Provider>
   );
