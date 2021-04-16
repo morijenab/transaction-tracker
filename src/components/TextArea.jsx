@@ -1,5 +1,5 @@
 import React from "react";
-
+import PropTypes from "prop-types";
 function TextArea({ label, name, onBlur, required, defaultValue }) {
   return (
     <div>
@@ -16,3 +16,11 @@ function TextArea({ label, name, onBlur, required, defaultValue }) {
 }
 
 export default TextArea;
+
+TextArea.propTypes = {
+  label: PropTypes.string,
+  name: PropTypes.string,
+  onBlur: PropTypes.func,
+  required: PropTypes.bool,
+  defaultValue: PropTypes.number,
+};

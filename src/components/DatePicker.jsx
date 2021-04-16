@@ -18,8 +18,11 @@ function DatePicker({ label, onBlur, name, required, defaultValue }) {
 }
 
 DatePicker.propTypes = {
-  label: PropTypes.string,
+  label: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   onBlur: PropTypes.func,
+  required: PropTypes.bool,
+  defaultValue: PropTypes.string,
 };
 
 export default DatePicker;

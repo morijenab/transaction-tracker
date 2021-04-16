@@ -25,6 +25,8 @@ function Select({ label, options, name, onChange, defaultValue }) {
 Select.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string,
+  onChange: PropTypes.func,
+  defaultValue: PropTypes.string,
   options: PropTypes.arrayOf(
     PropTypes.exact({
       id: PropTypes.number,

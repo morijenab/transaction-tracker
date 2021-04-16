@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const NumberInput = ({
   name,
@@ -29,3 +30,13 @@ const NumberInput = ({
 };
 
 export default NumberInput;
+
+NumberInput.propTypes = {
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  autoFocus: PropTypes.bool,
+  min: PropTypes.number,
+  required: PropTypes.bool,
+  onBlur: PropTypes.func,
+  defaultValue: PropTypes.number,
+};
