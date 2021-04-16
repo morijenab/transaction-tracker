@@ -5,7 +5,8 @@ import TextArea from "../components/TextArea";
 import DatePicker from "../components/DatePicker";
 import Select from "./../components/Select";
 import { saveData } from "../helpers/localStorage";
-import Wallet from "./Wallet";
+import { WalletContext } from "../context/walletProvider";
+
 const PAYMENT_OPTIONS = [
   { value: "income", label: "Income", id: 1 },
   { value: "expense", label: "Expense", id: 2 },
@@ -13,14 +14,17 @@ const PAYMENT_OPTIONS = [
 
 const TransactionForm = () => {
   const [data, setDate] = React.useState({ type: "income" });
+  const { dispatch } = React.useContext(WalletContext);
   const history = useHistory();
   const { state = {} } = useLocation();
   const { amount, note, date, type, id } = state;
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const dataBase = JSON.parse(localStorage.getItem("transactions")) ?? [];
-    saveData(dataBase, data, id);
+    saveData(data, id);
+
+    dispatch({ type: data.type, payload: data.amount });
+
     history.push("/");
   };
 
