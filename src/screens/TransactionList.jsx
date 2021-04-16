@@ -7,7 +7,7 @@ import { readData } from "../helpers/localStorage";
 const initialState = () => sortByDate(readData());
 
 function TransactionList() {
-  const list = initialState();
+  const [list] = React.useState(() => initialState());
   return (
     <div className="transitions_list">
       <Link to="/transaction-entry" className="transitions-add-btn">
@@ -16,7 +16,7 @@ function TransactionList() {
 
       {list?.map?.((item) => (
         <Card
-          key={id}
+          key={item.id}
           id={item.id}
           type={item.type}
           note={item.note}
