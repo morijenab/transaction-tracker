@@ -1,6 +1,14 @@
 import React from "react";
 
-const NumberInput = ({ name, label, autoFocus, min, required, onBlur }) => {
+const NumberInput = ({
+  name,
+  label,
+  autoFocus,
+  min,
+  required,
+  onBlur,
+  defaultValue,
+}) => {
   return (
     <div>
       <label>{label}</label>
@@ -14,6 +22,7 @@ const NumberInput = ({ name, label, autoFocus, min, required, onBlur }) => {
         onBlur={(e) => {
           onBlur({ value: e.target.valueAsNumber, name });
         }}
+        defaultValue={defaultValue}
       />
     </div>
   );
