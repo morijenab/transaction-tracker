@@ -22,6 +22,6 @@ export const deleteTransaction = (id) => {
  * @returns array
  */
 export const sortByDate = (arr = []) => {
-  if (!Array.isArray(arr) || arr.length < 0) return arr;
+  if (!Array.isArray(arr) || arr.length < 1) return arr;
   return arr.sort((a, b) => a?.transactionDate - b?.transactionDate);
 };
