@@ -11,7 +11,8 @@ label {
 .categoryFilter_legend {
   background-color: black;
   color: white;
-
+  border-radius: 5px;
+  padding: 5px;
   font-size: 20px;
 }
 .categoryFilter_box {
