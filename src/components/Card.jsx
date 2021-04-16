@@ -13,7 +13,7 @@ const Card = ({ id, type, note, amount, date }) => {
     >
       <div className="card">
         <span className="card_id">{id}</span>
-        <span className="card_divider"> | </span>
+        <span className="card_divider"> {"|"} </span>
         <div className="card_right_side">
           <div className="card_type_note">
             <span className="card_type">{type}</span>
@@ -26,7 +26,9 @@ const Card = ({ id, type, note, amount, date }) => {
               fontSize: 20,
             }}
           >
-            {type === "income" ? "+" : "-"}${amount}
+            {type === "income" ? "+" : "-"}
+            {"$"}
+            {amount}
           </span>
         </div>
       </div>

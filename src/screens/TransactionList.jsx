@@ -11,12 +11,12 @@ function TransactionList() {
   return (
     <div className="transitions_list">
       <Link to="/transaction-entry" className="transitions-add-btn">
-        + ADD Transaction
+        {"+ ADD Transaction"}
       </Link>
 
-      {list?.map?.((item, index) => (
+      {list?.map?.((item) => (
         <Card
-          key={index}
+          key={id}
           id={item.id}
           type={item.type}
           note={item.note}

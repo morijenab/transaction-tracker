@@ -13,12 +13,15 @@ const Wallet = (props) => {
   return (
     <div className="wallet">
       <div className="wallet_left_side">
-        <span>Wallet Balance</span>
-        <span>${wallet}</span>
+        <span>{"Wallet Balance"}</span>
+        <span>
+          {"$"}
+          {wallet}
+        </span>
       </div>
       <div className="wallet_right_side">
         <span>{today()}</span>
-        <span>USD</span>
+        <span>{"USD"}</span>
       </div>
     </div>
   );

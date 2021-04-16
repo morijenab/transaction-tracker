@@ -89,13 +89,13 @@ const TransactionForm = () => {
               setDate(initialState);
             }}
           >
-            Cancel
+            {"Cancel"}
           </button>
           <button type="button" onClick={handleDelete}>
-            delete
+            {"delete"}
           </button>
           <button className={"save-btn"} type="submit">
-            Save Transaction
+            {"Save Transaction"}
           </button>
         </div>
       </form>
