@@ -13,3 +13,17 @@ export const aggregateWallet = (data = []) => {
 
   return aggregate;
 };
+
+/**
+ *
+ * @param {number} wallet
+ * @param {string} type
+ * @param {number} value
+ * @returns boolean
+ */
+export const isTransactionValid = (wallet, type, value) => {
+  if (!wallet || !type || typeof type !== "number") return false;
+  if (type === "income") return true;
+  if (type === "expense" && value > wallet) return false;
+  return true;
+};
