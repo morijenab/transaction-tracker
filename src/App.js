@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "./App.css";
+import TransactionForm from "./screens/TransactionsForm";
+import TransactionList from "./screens/TransactionList";
+import Wallet from "./screens/Wallet";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Wallet />
+      <Router>
+        <Switch>
+          <Route path={["/transaction-entry/:id", "/transaction-entry"]}>
+            <TransactionForm />
+          </Route>
+          <Route path="/">
+            <TransactionList />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

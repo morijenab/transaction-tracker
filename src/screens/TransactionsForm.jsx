@@ -34,7 +34,6 @@ const TransactionForm = () => {
         {" "}
         {"<-back"}
       </Link>
-      <Wallet />
       <form onSubmit={handleSubmit}>
         <NumberInput
           label="Enter amount"
