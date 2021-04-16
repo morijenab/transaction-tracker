@@ -15,3 +15,13 @@ export const deleteTransaction = (id) => {
 
   saveToLocalStorage(otherRecords);
 };
+
+/**
+ *
+ * @param {array} arr
+ * @returns array
+ */
+export const sortByDate = (arr = []) => {
+  if (!Array.isArray(arr) || arr.length < 0) return arr;
+  return arr.sort((a, b) => a?.transactionDate - b?.transactionDate);
+};

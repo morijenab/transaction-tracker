@@ -2,10 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Card from "../components/Card";
 import "./transition.css";
-const initialState = () => localStorage.getItem("transactions");
+import { sortByDate } from "../helpers/transaction";
+import { readData } from "../helpers/localStorage";
+const initialState = () => sortByDate(readData());
 
 function TransactionList() {
-  const [list] = React.useState(() => JSON.parse(initialState()));
+  const list = initialState();
   return (
     <div className="transitions_list">
       <Link to="/transaction-entry" className="transitions-add-btn">
