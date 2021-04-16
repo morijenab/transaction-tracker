@@ -2,7 +2,7 @@ import React from "react";
 import "./card.css";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-
+import { INCOME, EXPENSE } from "../utilities/constants";
 const Card = ({ id, type, note, amount, date }) => {
   return (
     <Link
@@ -21,12 +21,12 @@ const Card = ({ id, type, note, amount, date }) => {
           </div>
           <span
             style={{
-              color: type === "income" ? "green" : "red",
+              color: type === INCOME ? "green" : "red",
               fontWeight: 500,
               fontSize: 20,
             }}
           >
-            {type === "income" ? "+" : "-"}
+            {type === INCOME ? "+" : "-"}
             {"$"}
             {amount}
           </span>
@@ -40,7 +40,7 @@ export default Card;
 
 Card.propTypes = {
   id: PropTypes.number,
-  type: PropTypes.oneOf(["income", "expense"]),
+  type: PropTypes.oneOf([INCOME, EXPENSE]),
   note: PropTypes.string,
   amount: PropTypes.number,
   date: PropTypes.string,

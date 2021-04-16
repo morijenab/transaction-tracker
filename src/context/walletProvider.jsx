@@ -2,6 +2,8 @@ import * as React from "react";
 import { readData } from "../helpers/localStorage";
 import { aggregateWallet } from "../helpers/wallet";
 import PropTypes from "prop-types";
+import { INCOME, EXPENSE } from "../utilities/constants";
+
 export const WalletContext = React.createContext();
 
 const walletBalance = () => {
@@ -12,10 +14,10 @@ const walletBalance = () => {
 
 const walletReducer = (state, action) => {
   switch (action.type) {
-    case "income": {
+    case INCOME: {
       return { wallet: state.wallet + action.payload };
     }
-    case "expense": {
+    case EXPENSE: {
       return { wallet: state.wallet - action.payload };
     }
     case "delete": {

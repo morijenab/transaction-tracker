@@ -8,12 +8,14 @@ import { saveData } from "../helpers/localStorage";
 import { WalletContext } from "../context/walletProvider";
 import { isTransactionValid } from "../helpers/wallet";
 import { deleteTransaction } from "../helpers/transaction";
+import { INCOME, EXPENSE } from "../utilities/constants";
+
 const PAYMENT_OPTIONS = [
-  { value: "income", label: "Income", id: 1 },
-  { value: "expense", label: "Expense", id: 2 },
+  { value: INCOME, label: INCOME, id: 1 },
+  { value: EXPENSE, label: EXPENSE, id: 2 },
 ];
 
-const initialState = { type: "income" };
+const initialState = { type: INCOME };
 const TransactionForm = () => {
   const [data, setDate] = React.useState(initialState);
   const { dispatch, wallet } = React.useContext(WalletContext);
