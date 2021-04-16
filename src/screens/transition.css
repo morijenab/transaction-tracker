@@ -1,6 +1,7 @@
 .transitions_list {
   display: flex;
   flex-direction: column;
+  min-height: 60%;
 }
 
 .transitions-add-btn {
