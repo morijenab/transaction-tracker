@@ -5,7 +5,7 @@ import { readData, saveToLocalStorage } from "./localStorage";
  * @param {number} id
  */
 export const deleteTransaction = (id) => {
-  if (!id) return;
+  if (typeof id !== "number") return;
 
   const records = readData();
 
