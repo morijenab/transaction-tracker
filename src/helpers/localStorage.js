@@ -12,3 +12,11 @@ export const saveData = (dataBase, data, id) => {
 const saveToLocalStorage = (data) => {
   localStorage.setItem("transactions", JSON.stringify(data));
 };
+
+/**
+ *
+ * @returns array of objects
+ */
+export const readData = () => {
+  return JSON.parse(localStorage.getItem("transactions"));
+};
