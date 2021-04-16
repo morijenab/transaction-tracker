@@ -1,4 +1,12 @@
+/**
+ *
+ * @param {object} data
+ * @param {number} id
+ * @returns
+ */
 export const saveData = (data, id) => {
+  if (!data) return;
+
   const dataBase = readData() ?? [];
 
   //update a record
