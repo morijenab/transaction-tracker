@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function Select({ label, options, name, onChange }) {
+function Select({ label, options, name, onChange, defaultValue }) {
   if (!options || options?.length < 1) return <></>;
   return (
     <div>
       <label>{label}</label>
       <select
+        defaultValue={defaultValue}
         name={name}
         className="base-input"
         onChange={(e) => onChange({ value: e.target.value, name })}
