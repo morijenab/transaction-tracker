@@ -1,0 +1,16 @@
+.transitions_list {
+  display: flex;
+  flex-direction: column;
+}
+
+.transitions-add-btn {
+  background-color: orange;
+  height: 30px;
+  margin: 20px;
+  width: 30%;
+  align-self: flex-end;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px darkblue solid;
+}
