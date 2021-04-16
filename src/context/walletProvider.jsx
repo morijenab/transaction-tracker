@@ -1,6 +1,7 @@
 import * as React from "react";
 import { readData } from "../helpers/localStorage";
 import { aggregateWallet } from "../helpers/wallet";
+import PropTypes from "prop-types";
 export const WalletContext = React.createContext();
 
 const walletBalance = () => {
@@ -36,4 +37,8 @@ function WalletProvider({ children }) {
     <WalletContext.Provider value={value}>{children}</WalletContext.Provider>
   );
 }
+
+WalletProvider.propTypes = {
+  children: PropTypes.node,
+};
 export { WalletProvider };
