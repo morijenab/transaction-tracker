@@ -18,9 +18,9 @@ function TextArea({ label, name, onBlur, required, defaultValue }) {
 export default TextArea;
 
 TextArea.propTypes = {
-  label: PropTypes.string,
+  label: PropTypes.string.isRequired,
   name: PropTypes.string,
   onBlur: PropTypes.func,
   required: PropTypes.bool,
-  defaultValue: PropTypes.number,
+  defaultValue: PropTypes.string,
 };
