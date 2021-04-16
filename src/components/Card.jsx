@@ -2,7 +2,8 @@ import React from "react";
 import "./card.css";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-function Card({ id, type, note, amount, date }) {
+
+const Card = ({ id, type, note, amount, date }) => {
   return (
     <Link
       to={{
@@ -31,7 +32,7 @@ function Card({ id, type, note, amount, date }) {
       </div>
     </Link>
   );
-}
+};
 
 export default Card;
 
