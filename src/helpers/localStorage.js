@@ -1,4 +1,6 @@
-export const saveData = (dataBase, data, id) => {
+export const saveData = (data, id) => {
+  const dataBase = readData() ?? [];
+
   //update DB
   if (id) {
     const otherRecords = dataBase.filter((item) => item.id !== id);
