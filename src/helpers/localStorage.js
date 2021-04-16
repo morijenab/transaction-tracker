@@ -11,7 +11,11 @@ export const saveData = (data, id) => {
   saveToLocalStorage([...dataBase, { ...data, id: dataBase.length }]);
 };
 
-const saveToLocalStorage = (data) => {
+/**
+ *
+ * @param {array} data
+ */
+export const saveToLocalStorage = (data) => {
   localStorage.setItem("transactions", JSON.stringify(data));
 };
 
