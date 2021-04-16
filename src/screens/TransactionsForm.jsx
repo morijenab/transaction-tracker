@@ -6,30 +6,42 @@ import DatePicker from "../components/DatePicker";
 import Select from "./../components/Select";
 import { saveData } from "../helpers/localStorage";
 import { WalletContext } from "../context/walletProvider";
-
+import { isTransactionValid } from "../helpers/wallet";
+import { deleteTransaction } from "../helpers/transaction";
 const PAYMENT_OPTIONS = [
   { value: "income", label: "Income", id: 1 },
   { value: "expense", label: "Expense", id: 2 },
 ];
 
+const initialState = { type: "income" };
 const TransactionForm = () => {
-  const [data, setDate] = React.useState({ type: "income" });
-  const { dispatch } = React.useContext(WalletContext);
+  const [data, setDate] = React.useState(initialState);
+  const { dispatch, wallet } = React.useContext(WalletContext);
   const history = useHistory();
   const { state = {} } = useLocation();
   const { amount, note, date, type, id } = state;
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    saveData(data, id);
-
-    dispatch({ type: data.type, payload: data.amount });
-
-    history.push("/");
+    if (isTransactionValid(wallet, data.type, data.amount)) {
+      saveData(data, id);
+      dispatch({ type: data.type, payload: data.amount });
+      history.push("/");
+    } else {
+      alert("sorry your wallet is less than what you wish :( ");
+    }
   };
 
   const handleChange = ({ value, name }) => {
     setDate({ ...data, [name]: value });
+  };
+
+  const handleDelete = () => {
+    // delete form DB
+    deleteTransaction(id);
+    // delete from global state
+    dispatch({ type: "delete", payload: data.amount });
+    history.push("/");
   };
 
   return (
@@ -73,9 +85,14 @@ const TransactionForm = () => {
           <button
             className={"cancel-btn"}
             type="reset"
-            onClick={() => setDate({})}
+            onClick={() => {
+              setDate(initialState);
+            }}
           >
             Cancel
+          </button>
+          <button type="button" onClick={handleDelete}>
+            delete
           </button>
           <button className={"save-btn"} type="submit">
             Save Transaction
